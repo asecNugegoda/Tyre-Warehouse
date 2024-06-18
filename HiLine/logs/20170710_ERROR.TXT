@@ -1,0 +1,18 @@
+
+ERROR.
+2017-07-10 23:57:03.996:java.io.IOException: Cannot run program "/opt/epicline//bin/logcl": error=13, Permission denied
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at java.lang.Runtime.exec(Runtime.java:450)
+	at java.lang.Runtime.exec(Runtime.java:347)
+	at com.epic.line.util.TxnUtil.runConsoleCommand(TxnUtil.java:703)
+	at com.epic.line.server.util.EODHandler.doLogBackup(EODHandler.java:39)
+	at com.epic.line.server.util.EODHandler.run(EODHandler.java:59)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.IOException: error=13, Permission denied
+	at java.lang.UNIXProcess.forkAndExec(Native Method)
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 7 more
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/src/java/com/myapp/constant/SystemMessage.java</file>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/src/java/com/myapp/globalparam/ContextListener.java</file>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/web/pages/Agent/createPO.jsp</file>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/src/java/com/myapp/createPO/service/createPOService.java</file>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/src/java/com/myapp/mapping/PurchasingOrder.java</file>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/src/java/com/myapp/util/Util.java</file>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/src/java/com/myapp/mapping/ItemOrder.java</file>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/src/java/struts.xml</file>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/web/pages/warehouse/manageWarehouse.jsp</file>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/src/java/com/myapp/util/AccessControlInterceptor.java</file>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/src/java/com/myapp/createPO/service/ViewPOService.java</file>
+            <file>file:/C:/Users/thilinath/Documents/NetBeansProjects/StockManagement/src/java/com/myapp/constant/Configurations.java</file>
+        </group>
+    </open-files>
+</project-private>

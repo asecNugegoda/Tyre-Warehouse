@@ -1,0 +1,182 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    
+    <package name="pglobal" namespace="/" extends="struts-default,json-default,jasperreports-default">
+        
+        <interceptors>
+            <interceptor name="AccesControl" class="com.myapp.util.AccessControlInterceptor" />              
+            <interceptor-stack name="WFStack">
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="cookieProvider"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="basicStack"/>
+                <interceptor-ref name="AccesControl"/>  <!--name -->
+                <interceptor-ref name="workflow"/>
+                <interceptor-ref name="defaultStack"/>                
+            </interceptor-stack>
+        </interceptors>
+        
+        <default-interceptor-ref name="WFStack"/> 
+                   
+        <global-results>
+            <result name="noaccessPage" type="chain" >logOut</result>
+            <result name="multiaccess">/pages/login/login.jsp</result>
+            <!--<result name="noaccessPage">/pages/msgFrag.jsp</result>-->
+        </global-results>   
+        
+    </package>
+    
+    
+    <package name="Login" extends="pglobal" namespace="/">
+
+        <default-action-ref name="init"/>
+        <!--   login action   -->
+        <action name="loginUser" class="com.myapp.login.action.LoginAction" method="loginCheck">
+            <result name="success">/pages/login/home.jsp</result>
+            <result name="login">/pages/login/login.jsp</result>
+        </action>
+       
+        <action name="logOut" class="com.myapp.login.action.LoginAction" method="logoutFunction">
+            <result name="login">/pages/login/login.jsp</result>
+        </action>
+        
+        <action name="homeCall" class="com.myapp.login.action.LoginAction" method="homeFunction">
+            <result name="success">/pages/login/home.jsp</result>          
+        </action>
+        
+        <action name="init" class="com.myapp.login.action.LoginAction" method="execute">
+            <result name="success">/pages/login/login.jsp</result>          
+        </action>
+        
+    </package>
+    
+    <package name="User_Management" extends="pglobal" namespace="/">
+                
+        <action name="*usrMng" method="{1}" class="com.myapp.userManagement.action.RegisterUser" >
+            <result name="add">/pages/msgFrag.jsp</result>
+            <result name="find" type="json"></result>
+            <result name="update">/pages/msgFrag.jsp</result>
+            <result name="delete" type="json"></result>
+            <result name="success">/pages/userManagement/registerUser.jsp</result>
+            <result name="list" type="json"></result>
+            <result name="vehicle">/pages/userManagement/AddVehicle.jsp</result>
+        </action>
+        
+        <action name="*vehicle" method="{1}" class="com.myapp.userManagement.action.RegisterVehicle">
+            <result name="add">/pages/msgFrag.jsp</result>
+            <result name="list" type="json">/pages/userManagement/AddVehicle.jsp</result>
+            <result name="load" type="json"></result>
+            <result name="Delete" type="json"></result>
+            <result name="update">/pages/msgFrag.jsp</result>
+        </action>
+        
+        <action name="*userPrivlage" method="{1}" class="com.myapp.profile.action.UserProfileManagement">
+            <result name="success">/pages/userprofile/registerUserProfiles.jsp</result>
+            <result name="list" type="json"></result> 
+            <result name="load" type="json"></result>
+            <result name="pagemap" type="json"></result>
+            <result name="update" type="json"></result>
+            <result name="add" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="loadmodulepages" type="json"></result>
+                                  
+        </action>
+        
+    </package>
+    
+    <package name="CreatePO" extends="pglobal" namespace="/">
+                
+        <action name="*regAgent" method="{1}" class="com.myapp.createPO.action.AgentAction">
+            <result name="add">/pages/msgFrag.jsp</result>
+            <result name="find" type="json"></result>
+            <result name="update">/pages/msgFrag.jsp</result>
+            <result name="delete" type="json"></result>
+            <result name="success">/pages/Agent/registerAgent.jsp</result>
+            <result name="list" type="json"></result>
+        </action>
+        
+        <action name="*creatPo" method="{1}" class="com.myapp.createPO.action.CreatePOAction" >
+            <result name="add">/pages/msgFrag.jsp</result>
+            <result name="find" type="json"></result>
+            <result name="update">/pages/msgFrag.jsp</result>
+            <result name="delete" type="json"></result>
+            <result name="success">/pages/Agent/createPO.jsp</result>
+            <result name="list" type="json"></result>
+            <result name="loadItems" type="json"></result>
+            <result name="more">/pages/msgFrag.jsp</result>
+            <result name="POView">/pages/Agent/viewPOItems.jsp</result>
+            <result name="excelreportpo" type="stream">
+                <param name="contentType">"application/vnd.ms-excel"</param>
+                <param name="inputName">excelStream</param>
+                <param name="contentDisposition">attachment;filename="system_purchasing_order.xlsx"</param>
+                <param name="bufferSize">61440</param>
+            </result>
+            <result name="zip" type="stream">
+                <param name="contentDisposition">attachment;filename="syatem_purchasing_order.zip"</param>
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">zipStream</param>
+                <param name="bufferSize">61440</param>
+            </result>
+            
+        </action>
+        
+        <action name="*viewPO" method="{1}" class="com.myapp.createPO.action.POItemAction" >
+            <result name="list" type="json"></result>
+            <result name="delete" type="json"></result>
+        </action>
+        
+    </package> 
+    <package name="WareHouse" extends="pglobal" namespace="/">
+                
+        <action name="*ItemStore" method="{1}" class="com.myapp.warehouse.action.warehouseItemAction">
+            <result name="add">/pages/msgFrag.jsp</result>
+            <result name="find" type="json"></result>
+            <result name="update">/pages/msgFrag.jsp</result>
+            <result name="delete" type="json"></result>
+            <result name="success">/pages/warehouse/warehouseItem.jsp</result>
+            <result name="list" type="json"></result>
+            <result name="Category">/pages/warehouse/addCategoryView.jsp</result>
+            <result name="Brand">/pages/warehouse/addBrandView.jsp</result>
+        </action>
+        
+        <action name="*brand" method="{1}" class="com.myapp.warehouse.action.BrandAction">
+            <result name="add">/pages/msgFrag.jsp</result>
+            <result name="list" type="json">/pages/warehouse/addBrandView.jsp</result>
+            <result name="load" type="json"></result>
+            <result name="Delete" type="json"></result>
+            <result name="update">/pages/msgFrag.jsp</result>
+        </action>
+        
+        <action name="*itemCat" method="{1}" class="com.myapp.warehouse.action.CategoryAction">
+            <result name="add">/pages/msgFrag.jsp</result>
+            <result name="list" type="json">/pages/warehouse/addCategoryView.jsp</result>
+            <result name="load" type="json"></result>
+            <result name="Delete" type="json"></result>
+            <result name="update" type="json">/pages/msgFrag.jsp</result>
+        </action>
+        
+        <action name="*mngWarehouse" method="{1}" class="com.myapp.warehouse.action.manageWarehouseAction" >
+            <result name="add">/pages/msgFrag.jsp</result>
+            <result name="find" type="json"></result>
+            <result name="update">/pages/msgFrag.jsp</result>
+            <result name="delete" type="json">/pages/msgFrag.jsp</result>
+            <result name="success">/pages/warehouse/manageWarehouse.jsp</result>
+            <result name="list" type="json"></result>
+            <result name="Assign">/pages/warehouse/rackAssign.jsp</result>
+        </action>
+        
+        <action name="*mngRacks" method="{1}" class="com.myapp.warehouse.action.RackAction" >
+            <result name="add">/pages/msgFrag.jsp</result>
+            <result name="find" type="json"></result>
+            <result name="update">/pages/msgFrag.jsp</result>
+            <result name="delete" type="json">/pages/msgFrag.jsp</result>
+            <result name="success">/pages/warehouse/manageWarehouse.jsp</result>
+            <result name="list" type="json">/pages/warehouse/rackAssign.jsp</result>
+        </action>
+        
+    </package>
+    
+</struts>

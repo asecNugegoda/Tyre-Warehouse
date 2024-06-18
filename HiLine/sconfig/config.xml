@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+		<servernode>2</servernode>
+
+		
+		<!-- Database  configuration -->
+		<dbpoolmax>30</dbpoolmax>
+  		<dbpoolmin>10</dbpoolmin>
+		<dbpoolmaxcon>50</dbpoolmaxcon>
+		<dbpoolcontimeout>5000</dbpoolcontimeout> <!-- ms -->
+		<dbpoolconexpirtimeout>0</dbpoolconexpirtimeout> <!-- s -->
+  		<dbpoolurl>jdbc:mysql://localhost:3306/warehouse</dbpoolurl>
+		<dbpoolusername>root</dbpoolusername>
+		<dbpoolpassword>3331333233333334</dbpoolpassword>
+		<dbpooldriver>com.mysql.jdbc.Driver</dbpooldriver>
+		<dbdialect>org.hibernate.dialect.MySQLDialect</dbdialect>
+		
+		<dbpooltype>2</dbpooltype> 
+
+</config>

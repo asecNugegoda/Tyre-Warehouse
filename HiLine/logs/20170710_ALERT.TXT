@@ -1,0 +1,9 @@
+
+ALERT.
+2017-07-10 12:50:02.948:Epic TLE server has been restared
+
+ALERT.
+2017-07-10 12:53:55.697:Listener is started with 192.168.1.115[LID-L12000014795936]
+
+ALERT.
+2017-07-10 12:56:27.065:Listener is stopped with 192.168.1.115[LID-L12000014795936]
